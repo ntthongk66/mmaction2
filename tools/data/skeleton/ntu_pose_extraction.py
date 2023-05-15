@@ -4,6 +4,7 @@ import argparse
 import os.path as osp
 from collections import defaultdict
 from tempfile import TemporaryDirectory
+import json
 
 import mmengine
 import numpy as np
@@ -256,6 +257,10 @@ def ntu_pose_extraction(vid, skip_postproc=False):
     anno['original_shape'] = (1080, 1920)
     anno['total_frames'] = len(pose_results)
     anno['label'] = int(osp.basename(vid).split('A')[1][:3]) - 1
+    
+    with open("sample.json", "w") as outfile:
+        json.dump(anno, outfile)
+    
     tmp_dir.cleanup()
 
     return anno
