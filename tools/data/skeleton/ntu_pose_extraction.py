@@ -258,9 +258,9 @@ def ntu_pose_extraction(vid, skip_postproc=False):
     anno['total_frames'] = len(pose_results)
     anno['label'] = int(osp.basename(vid).split('A')[1][:3]) - 1
     
-    new_anno = anno
-    with open("sample.json", "w") as outfile:
-        json.dump(new_anno, outfile)
+    # new_anno = anno
+    # with open("sample.json", "w") as outfile:
+    #     json.dump(new_anno, outfile)
     
     tmp_dir.cleanup()
 
